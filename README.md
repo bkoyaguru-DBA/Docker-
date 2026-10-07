@@ -1,4 +1,4 @@
-# Docker Notes
+# Docker Basic Commands
 
 Basic Docker commands with real output: list, stop, remove, images, pull, run and prune.
 
