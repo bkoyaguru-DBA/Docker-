@@ -21,7 +21,7 @@ docker ps
 ```
 
 ```text
-root@postrges:~# docker ps
+root@postgres:~# docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS          PORTS                                         NAMES
 8831386aedbc   nginx         "/docker-entrypoint.…"   3 seconds ago       Up 2 seconds    80/tcp                                        relaxed_murdock
 117be7f58337   postgres:17   "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes    5432/tcp                                      pg-restored
@@ -45,7 +45,7 @@ docker stop <container-name>
 ```
 
 ```text
-root@postrges:~# docker ps
+root@postgres:~# docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS          PORTS                                         NAMES
 8831386aedbc   nginx         "/docker-entrypoint.…"   2 minutes ago       Up 2 minutes    80/tcp                                        relaxed_murdock
 117be7f58337   postgres:17   "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes    5432/tcp                                      pg-restored
@@ -54,7 +54,7 @@ f7fe355ea11e   postgres:16   "docker-entrypoint.s…"   3 hours ago         Up 4
 root@postrges:~# docker stop 8831386aedbc
 8831386aedbc
 
-root@postrges:~# docker ps
+root@postgres:~# docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS          PORTS                                         NAMES
 117be7f58337   postgres:17   "docker-entrypoint.s…"   6 minutes ago       Up 6 minutes    5432/tcp                                      pg-restored
 5815112a434e   postgres:17   "docker-entrypoint.s…"   About an hour ago   Up 28 minutes   0.0.0.0:5431->5432/tcp, [::]:5431->5432/tcp   pg1-persist
@@ -69,7 +69,7 @@ docker rm <container-name>
 ```
 
 ```text
-root@postrges:~# docker ps -a
+root@postgres:~# docker ps -a
 CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS                          PORTS                                         NAMES
 8831386aedbc   nginx         "/docker-entrypoint.…"   3 minutes ago       Exited (0) About a minute ago                                                 relaxed_murdock
 117be7f58337   postgres:17   "docker-entrypoint.s…"   7 minutes ago       Up 7 minutes                    5432/tcp                                      pg-restored
@@ -77,7 +77,7 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS
 f7fe355ea11e   postgres:16   "docker-entrypoint.s…"   3 hours ago         Up 47 minutes                   0.0.0.0:5434->5432/tcp, [::]:5434->5432/tcp   pg1-poc
 8b1f9fd7b607   postgres:16   "docker-entrypoint.s…"   3 hours ago         Created                                                                       pg1-test
 31a9315d95be   hello-world   "/hello"                 3 hours ago         Exited (0) 3 hours ago                                                        ecstatic_bassi
-root@postrges:~# docker rm relaxed_murdock
+root@postgres:~# docker rm relaxed_murdock
 relaxed_murdock
 ```
 
@@ -86,12 +86,12 @@ relaxed_murdock
 > - You can remove multiple containers in one command.
 
 ```text
-[root@RHEL8 ~]# docker ps -a
+[root@postgres ~]# docker ps -a
 CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                          PORTS     NAMES
 a3c539c463c5   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) About a minute ago             funny_sammet
 8d7644fc6a08   nginx     "/docker-entrypoint.…"   2 minutes ago   Exited (0) 2 minutes ago                  elegant_shamir
 
-[root@RHEL8 ~]# docker rm a3c53 8d764
+[root@postgres ~]# docker rm a3c53 8d764
 a3c53
 8d764
 ```
@@ -107,7 +107,7 @@ docker images
 ```
 
 ```text
-root@postrges:~# docker images
+root@postgres:~# docker images
                                                                                                                                                                     i Info →   U  In Use
 IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
 alpine:latest        28bd5fe8b56d         13MB         3.93MB
@@ -115,7 +115,7 @@ hello-world:latest   5dd0d3e6e255       25.9kB         9.49kB    U
 nginx:latest         0d4374c710a9        241MB         66.2MB    U
 postgres:16          e17e86066e5e        642MB          166MB    U
 postgres:17          e38411452a46        645MB          167MB    U
-root@postrges:~#
+root@postgres:~#
 ```
 
 ### Remove an image
@@ -129,7 +129,7 @@ docker image rm <image-name-or-id>
 ```
 
 ```text
-root@postrges:~# docker image rm nginx:latest
+root@postgres:~# docker image rm nginx:latest
 Untagged: nginx:latest
 Deleted: sha256:0d4374c710a9649200e84f8ef8dbdd4fa76c0c107839cd50f1e42a63916b0f2e
 ```
@@ -145,7 +145,7 @@ docker pull nginx
 ```
 
 ```text
-root@postrges:~# docker pull nginx
+root@postgres:~# docker pull nginx
 Using default tag: latest
 latest: Pulling from library/nginx
 7eb55399d6de: Pull complete
@@ -170,10 +170,10 @@ docker run -d nginx
 ```
 
 ```text
-root@postrges:~# docker run -d nginx
+root@postgres:~# docker run -d nginx
 8831386aedbce7e032aed6c86f4c174149d3767786f22a5de9f3311d884f28d5
 
-root@postrges:~# docker ps
+root@postgres:~# docker ps
 CONTAINER ID   IMAGE         COMMAND                  CREATED             STATUS          PORTS                                         NAMES
 8831386aedbc   nginx         "/docker-entrypoint.…"   3 seconds ago       Up 2 seconds    80/tcp                                        relaxed_murdock
 ```
@@ -202,7 +202,7 @@ docker system df
 ```
 
 ```text
-root@postrges:~# docker system df
+root@postgres:~# docker system df
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          4         3         1.183GB   13.01MB (1%)
 Containers      5         3         110.6kB   8.192kB (7%)
@@ -217,7 +217,7 @@ docker system df -v
 ```
 
 ```text
-root@postrges:~# docker system df -v
+root@postgres:~# docker system df -v
 Images space usage:
 
 REPOSITORY    TAG       IMAGE ID       CREATED        SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS
@@ -261,7 +261,7 @@ docker system prune
 ```
 
 ```text
-root@postrges:~# docker system prune
+root@postgres:~# docker system prune
 WARNING! This will remove:
   - all stopped containers
   - all networks not used by at least one container
